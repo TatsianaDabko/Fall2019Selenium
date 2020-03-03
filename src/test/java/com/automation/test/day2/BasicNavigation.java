@@ -9,5 +9,6 @@ public class BasicNavigation {
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://google.com");
 
+
     }
 }
