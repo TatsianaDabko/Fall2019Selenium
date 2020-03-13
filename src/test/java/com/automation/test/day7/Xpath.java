@@ -8,13 +8,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Xpath<userNameLocator> {
 
-    static String userNameLocator = "//label[text()='Username']/following-sibling::input";
+    public static String userNameLocator = "//label[text()='Username']/following-sibling::input";
+    public static String passwordLocator = "//label[text()='Password']/following-sibling::input";
+    public static String loginBtnLocator = "//button[contains(text(), 'Login')]";
+
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/login");
         BrowserUtils.wait(3);
-        driver.findElement(By.xpath(userNameLocator));
+        driver.findElement(By.xpath(userNameLocator)).sendKeys("tomsmith");
+        driver.findElement(By.xpath(passwordLocator)).sendKeys("SuperSecretPassword");
+        driver.findElement(By.xpath(loginBtnLocator)).click();
 
 
 
